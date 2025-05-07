@@ -141,13 +141,18 @@ def isfloat(v: str) -> bool:
     return v.isdigit()
 
 def isint(v:str) -> bool:
-    try:
-        int(v)
-        return True
-    except ValueError:
-        return False
-    
-print(isint("edson"))# False
+    digito = "0123456789"
+    valido = True
+    if v[0] in "+-" or v[0] in digito:
+        for i in range(1, len(v)):
+            if v[i] not in digito:
+                valido = False
+                break
+    else:
+        valido = False
+    return valido
+
+print(isfloat("edson"))# False
 print(isfloat("45.78")) # True
 print(isfloat("65")) # True
 print(isfloat("-98")) # True
