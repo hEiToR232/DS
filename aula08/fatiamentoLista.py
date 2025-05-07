@@ -125,13 +125,29 @@ print(upper)
     resp = isfloat("+22.78") # True
     resp = isfloat("44.777.88") # False
 '''
+'''
 def isfloat(r) -> bool:
     try:
         float(r)
         return True
     except ValueError:
         return False
-print(isfloat("edson"))# False
+'''
+def isfloat(v: str) -> bool:
+    if v[0] == "-" or v[0] == "+":
+        v = v.replace("-", "", 1)
+        v = v.replace("+", "", 1)
+    v = v.replace(".", "", 1)
+    return v.isdigit()
+
+def isint(v:str) -> bool:
+    try:
+        int(v)
+        return True
+    except ValueError:
+        return False
+    
+print(isint("edson"))# False
 print(isfloat("45.78")) # True
 print(isfloat("65")) # True
 print(isfloat("-98")) # True
