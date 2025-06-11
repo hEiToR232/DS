@@ -62,21 +62,19 @@ def exibe_junto(frase: str) -> None:
     return frase.replace(" ", "")
 
 def isplaca(placa: str) -> bool:
-    if len(placa) < 7:
-        digito = "0123456789"
-        valido = True
-        for i in range(0,3):
-            if placa[i] in digito:
-                valido = False
+    digito = "0123456789"
+    valido = True
+    for i in range(0,3):
+        if placa[i] in digito:
+            valido = False
         if placa[3] not in digito:
             valido = False
         if placa[5] not in digito:
             valido = False
         if placa[6] not in digito:
             valido = False
-    else:
-        valido = False
     return valido
+
 def iscpf(frase: str)-> bool:
     soma = 0
     for i in range(9):
@@ -139,6 +137,7 @@ SOBRE STRINGS
         print(f"É uma placa de carro: {isplaca(frase)}")
     if escolha ==9:
         print(f"É um cpf: {iscpf(frase)}")
+    input("pressione para continuar...")
     
 
 
